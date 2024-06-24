@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 void soma(float *a, float *b){
     float *resultado;
     resultado = malloc(sizeof(float));
     *resultado = *a + *b;
     printf("Resultado: %f\n\n",*resultado);
+    free(resultado);
 }
 
 void subtracao(float *a, float *b){
@@ -14,6 +14,7 @@ void subtracao(float *a, float *b){
     resultado = malloc(sizeof(float));
     *resultado = *a - *b;
     printf("Resultado: %f\n\n",*resultado);
+    free(resultado);
 }
 
 void multiplicacao(float *a, float *b){
@@ -21,6 +22,7 @@ void multiplicacao(float *a, float *b){
     resultado = malloc(sizeof(float));
     *resultado = (*a) * (*b);
     printf("Resultado: %f\n\n",*resultado);
+    free(resultado);
 }
 
 void divisao(float *a, float *b){
@@ -33,7 +35,7 @@ void divisao(float *a, float *b){
     else{
         printf("Resultado: %f\n\n",*resultado);   
     }
-
+    free(resultado);
 }
 
 void tabelaOperacao(){
@@ -119,14 +121,35 @@ void exponencial(float *a, float *b){
             printf("Resultado: %f\n\n",*resultado);
         } 
     }
-    
+    free(resultado);
 }
 
-void raiz(float *a){
+void raiz(float *a) {
     float *resultado;
     resultado = malloc(sizeof(float));
-    *resultado = sqrt(*a);
-    printf("Resultado: %f\n\n", *resultado);
+
+    if (*a < 0) {
+        printf("Numero inválido! Digite um número nao negativo.\n\n");
+    } else {
+        if (*a == 0) {
+            *resultado = 0;
+        } else {
+            float aproximacao = *a / 2.0;
+            float melhorAproximacao;
+            
+            while (1) {
+                melhorAproximacao = (aproximacao + *a / aproximacao) / 2.0;
+                if (fabs(melhorAproximacao - aproximacao) < 0.00001) {
+                    break;
+                }
+                aproximacao = melhorAproximacao;
+            }
+            *resultado = melhorAproximacao;
+        }
+
+        printf("Resultado: %f\n\n", *resultado);
+    }
+    free(resultado);
 }
 
 int main(){
