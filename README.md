@@ -1,40 +1,76 @@
-Calculadora científica
-Este é um programa simples de calculadora científica de linha de comando escrito em C. Ele permite que o usuário execute várias operações matemáticas, incluindo:
+# **Calculadora Científica em C**
 
-Adição
-Subtração
-Multiplicação
-Divisão
-Expoentes
-Raiz quadrada
+Este é um projeto em **C** para uma calculadora científica simples, capaz de realizar operações matemáticas básicas e avançadas. O programa permite ao usuário calcular soma, subtração, multiplicação, divisão, exponenciação e raiz quadrada de números.
 
-Como usar
+## **Funcionalidades**
 
-Compile o programa usando um compilador C (por exemplo gcc calculator.c -o calculator).
-Execute o programa compilado ( ./calculator).
-O programa exibirá um menu de operações disponíveis. Insira o número correspondente para selecionar a operação desejada.
-Para cada operação, o programa solicitará que você insira os valores necessários (por exemplo, dois números para adição, subtração, multiplicação e divisão).
-O programa então exibirá o resultado do cálculo.
-Após cada operação, o menu será exibido novamente, permitindo que você realize outro cálculo.
-Para sair do programa, selecione a opção 0 no menu.
+A calculadora oferece as seguintes operações:
 
-Características
+- **Soma**: Adiciona dois números.
+- **Subtração**: Subtrai um número de outro.
+- **Multiplicação**: Multiplica dois números.
+- **Divisão**: Divide dois números, com verificação de divisão por zero.
+- **Exponenciação**: Calcula a base elevada ao expoente.
+- **Raiz Quadrada**: Calcula a raiz quadrada de um número.
 
-Lida com operações aritméticas básicas: adição, subtração, multiplicação e divisão.
-Suporta cálculos de expoentes, incluindo manipulação de bases negativas e expoentes.
-Inclui uma função de raiz quadrada.
-Fornece tratamento de erros para divisão por zero.
-Usa alocação dinâmica de memória para manipular entradas variáveis.
-Apresenta uma interface de menu amigável para selecionar operações.
+## **Como Funciona**
 
-Visão geral do código
-O programa é dividido nas seguintes funções:
+- O programa apresenta um menu de operações numéricas.
+- O usuário escolhe uma operação, insere os valores necessários e obtém o resultado.
+- O processo pode ser repetido até o usuário decidir encerrar o programa (opção "0").
 
-soma(), subtracao(), multiplicacao(), divisao(): Executar as respectivas operações aritméticas.
-exponencial(): Calcula o resultado de elevar um número a uma potência, lidando com vários casos (por exemplo, base negativa, expoente zero).
-raiz(): Calcula a raiz quadrada de um número fornecido.
-tabelaOperacao(): Exibe o menu de operações disponíveis.
-main(): Gerencia o fluxo geral do programa, incluindo entrada do usuário, seleção de operação e alocação de memória.
+### **Exemplo de Uso**
 
-O programa utiliza ponteiros para manipular os valores de entrada e os resultados, garantindo uso eficiente da memória e cálculos precisos.
- 
+```bash
+Calculadora Científica
+
+Escolha uma operação:
+0. Sair
+1. Soma
+2. Subtração
+3. Multiplicação
+4. Divisão
+5. Exponenciação
+6. Raiz Quadrada
+
+Digite o número da operação desejada: 1
+Primeiro valor: 5
+Segundo valor: 3
+Resultado: 8.000000
+```
+
+## **Como Compilar e Executar**
+
+### **Requisitos**
+- Compilador **GCC** ou similar
+- Biblioteca `math.h` (já incluída na maioria dos compiladores)
+
+### **Compilação**
+
+1. Para compilar o programa, execute o seguinte comando no terminal:
+
+```bash
+gcc calculadora.c -o calculadora -lm
+```
+
+> **Nota**: A opção `-lm` é usada para garantir que a biblioteca matemática (`math.h`) seja corretamente vinculada.
+
+2. Para executar o programa compilado:
+
+```bash
+./calculadora
+```
+
+## **Estrutura do Código**
+
+O código está dividido em funções para realizar cada operação matemática de forma organizada:
+
+- **Funções de Operações**: Cada operação (soma, subtração, etc.) tem uma função dedicada.
+- **Uso de Memória Dinâmica**: A memória para armazenar resultados é alocada dinamicamente e liberada após o cálculo.
+- **Verificação de Erros**: A divisão por zero e outras condições de erro são verificadas adequadamente.
+
+## **Considerações**
+
+- A calculadora foi projetada para ser simples e intuitiva.
+- Verificações de erro são realizadas, como a divisão por zero e a exponenciação com valores inválidos.
+- A memória alocada para os resultados é liberada após cada operação, garantindo a eficiência do programa.
